@@ -1,15 +1,16 @@
 [features]
 seeds = false
 skip-lint = false
-[programs.localnet]
-monthly_subscription_solana = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+[programs.devnet]
+monthly_subscription_solana = "8SMdQGKPcJsMBGQjR79XRBPVec2Z8BJi89wFfRqZqTFK"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/mateo/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+create = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/Create.ts"
+suscribe = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/Suscribe.ts"
