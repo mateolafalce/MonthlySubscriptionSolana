@@ -10,22 +10,24 @@ describe("Creating PDA", () => {
     const wallet = provider.wallet as anchor.Wallet;
     const program = anchor.workspace.MonthlySubscriptionSolana as Program<MonthlySubscriptionSolana>;
     it("Created", async () => {
-      const [suscribeData, _bump] = await PublicKey
+      const [enterpriseData, _bump] = await PublicKey
       .findProgramAddress(
         [
-          anchor.utils.bytes.utf8.encode("MyEnterprise"),
+          anchor.utils.bytes.utf8.encode("Enterprise"),
           wallet.publicKey.toBuffer(),
         ],
         program.programId
       )
-      const tx = await program.methods.create(new anchor.BN(78942))
-      .accounts({
-          suscribeData: suscribeData,
+      const tx = await program.methods.create(
+        new anchor.BN(78942), 
+        "Waltdum"
+        ).accounts({
+          enterpriseData: enterpriseData,
           user: wallet.publicKey,
           systemProgram: SystemProgram.programId,
         }).rpc();
       console.log("---------------------------------------------")
-      console.log("PDA: ", suscribeData.toBase58());
+      console.log("PDA: ", enterpriseData.toBase58());
       console.log("---------------------------------------------") 
       console.log("Your transaction signature", tx);
     });

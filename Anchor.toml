@@ -2,7 +2,7 @@
 seeds = false
 skip-lint = false
 [programs.devnet]
-monthly_subscription_solana = "8SMdQGKPcJsMBGQjR79XRBPVec2Z8BJi89wFfRqZqTFK"
+monthly_subscription_solana = "GySjZVLx2nSYBT6zhhpk5YsyqNhngwZa28AmXosK8bjv"
 
 [registry]
 url = "https://api.apr.dev"
