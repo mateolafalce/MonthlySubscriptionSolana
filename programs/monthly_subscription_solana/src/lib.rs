@@ -90,6 +90,11 @@ pub mod monthly_subscription_solana {
         enterprise_data.amount_per_month = share_amount;
         Ok(())
     }
+    pub fn delete_account(
+        _ctx: Context<DeletePerc>
+    ) -> Result<()> {
+        Ok(())
+    }
 }
 #[derive(Accounts)]
 pub struct Create<'info> {
