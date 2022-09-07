@@ -91,7 +91,7 @@ pub mod monthly_subscription_solana {
         Ok(())
     }
     pub fn delete_account(
-        _ctx: Context<DeletePerc>
+        _ctx: Context<Delete>
     ) -> Result<()> {
         Ok(())
     }
@@ -140,6 +140,15 @@ pub struct Renew<'info> {
     /// CHECK: This is not dangerous because we don't read or write from this account
     #[account(mut)]
     pub stake: AccountInfo<'info>,
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+#[derive(Accounts)]
+pub struct Delete<'info> {
+    #[account(mut, seeds = [b"Enterprise", enterprise_data.authority.key().as_ref()], bump = enterprise_data.bump_original)]
+    pub enterprise_data: Account<'info, EnterpriseData>,
+    #[account(mut, seeds = [enterprise_data.key().as_ref(), user.key().as_ref()], bump = user_data.bump, close = enterprise_data)]
+    pub user_data: Account<'info, SubscriberData>,
     pub user: Signer<'info>,
     pub system_program: Program<'info, System>,
 }

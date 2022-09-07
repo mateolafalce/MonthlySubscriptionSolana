@@ -14,3 +14,4 @@ wallet = "/home/mateo/.config/solana/id.json"
 [scripts]
 create = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/Create.ts"
 suscribe = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/Suscribe.ts"
+delete = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/Delete.ts"
