@@ -1,0 +1,12 @@
+[package]
+name = "suscription"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+monthly_subscription_solana = { path = "./monthly_subscription_solana", features = ["no-entrypoint"] }
+shellexpand = "2.1.0"
+anchor-client = { version = "0.26.0", features = ["debug"] }
+anyhow = "1.0.32"
