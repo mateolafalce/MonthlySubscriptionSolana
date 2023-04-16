@@ -9,7 +9,7 @@
 
 ---
 
-<div style="text-align: justify;">
+<div>
   This program is focused on the massive integration of monthly services to the Solana blockchain ecosystem. Being the creation of services and their respective administration, decentralized in each provider.
 
   The program consists of 5 basic functions that allow the autonomous performance of this program. Development can be integrated into desktop projects as well as mobile devices. The program will use credit of 8 per month, understanding that the service offered is 2 times per week, this can be modified and scaled to the needs of the developer.
@@ -18,9 +18,9 @@
 
   Both registering a service and using one of the credits paid each month implies a use of the computing power of the Solana blockchain, so the project would scale up in those projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
 
-<h3 align="center">Register a service</h3>
+<h3 align="center">Register a service🏪</h3>
 
-  ```rust
+```rust
 pub fn create(
       ctx: Context<Create>,
       share_amount: u64,
