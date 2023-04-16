@@ -3,7 +3,7 @@
 ![suscription](/suscription.png)
 
 
-<h1>🌞Solana monthly subscription</h1>
+<h1>🌞Solana monthly subscription💵</h1>
 <h4>A monthly subscription validated by the blockchain</h4>
 </div>
 
