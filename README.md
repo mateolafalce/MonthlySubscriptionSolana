@@ -22,27 +22,33 @@
 
 ```rust
 pub fn create(
-      ctx: Context<Create>,
-      share_amount: u64,
-      name: String
-  ) -> Result<()> {
-      let enterprise_data: &mut Account<EnterpriseData> = &mut ctx.accounts.enterprise_data;
-      let (_pda, bump) = Pubkey::find_program_address(&[b"Enterprise", ctx.accounts.user.key().as_ref()], ctx.program_id);
-      enterprise_data.authority = ctx.accounts.user.key();
-      enterprise_data.bump_original = bump;
-      enterprise_data.name = name;
-      enterprise_data.total_users = 0;
-      enterprise_data.amount_per_month = share_amount;
-      enterprise_data.secure_check = Clock::get().unwrap().unix_timestamp + 2332800;
-      Ok(())
-  }
+    ctx: Context<Create>,
+    share_amount: u64,
+    name: String
+) -> Result<()> {
+    // Get the enterprise_data account and PDA (program-derived address)
+    let enterprise_data: &mut Account<EnterpriseData> = &mut ctx.accounts.enterprise_data;
+    let (_pda, bump) = Pubkey::find_program_address(&[b"Enterprise", ctx.accounts.user.key().as_ref()], ctx.program_id);
+    // Set the authority, name, and other fields in the enterprise_data account
+    enterprise_data.authority = ctx.accounts.user.key();
+    enterprise_data.bump_original = bump;
+    enterprise_data.name = name;
+    enterprise_data.total_users = 0;
+    enterprise_data.amount_per_month = share_amount;
+    enterprise_data.secure_check = Clock::get().unwrap().unix_timestamp + 2332800;
+    // Return Ok if successful
+    Ok(())
+}
+
+// Define a struct for the create function's accounts
 #[derive(Accounts)]
 pub struct Create<'info> {
-  #[account(init, seeds = [b"Enterprise", user.key().as_ref()], bump, payer = user, space = 8 + EnterpriseData::LEN)]
-  pub enterprise_data: Account<'info, EnterpriseData>,
-  #[account(mut)]
-  pub user: Signer<'info>,
-  pub system_program: Program<'info, System>,
+    // Initialize enterprise_data account with seeds, payer, and space
+    #[account(init, seeds = [b"Enterprise", user.key().as_ref()], bump, payer = user, space = 8 + EnterpriseData::LEN)]
+    pub enterprise_data: Account<'info, EnterpriseData>,
+    #[account(mut)]
+    pub user: Signer<'info>, // mutable user account
+    pub system_program: Program<'info, System>, // system program account
 }
 ```
 The create function takes as parameters a Context, a u64 value named share_amount, and a string named name. The return type of the function is Result<()>, which means that the function can return an Ok(()) value on success or an Err value on error.
