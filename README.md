@@ -17,7 +17,7 @@
   🌎 Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
 
   💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options. 🚀
-  
+
 <h3 align="center">Register a service🏪</h3>
 
 ```rust
@@ -51,13 +51,13 @@ pub struct Create<'info> {
     pub system_program: Program<'info, System>, // system program account
 }
 ```
-The create function takes as parameters a Context, a u64 value named share_amount, and a string named name. The return type of the function is Result<()>, which means that the function can return an Ok(()) value on success or an Err value on error.
+The create function takes three parameters: a Context, a u64 value named share_amount, and a string named name. The return type of the function is Result<()> ✅❌, which means that the function can return an Ok(()) value on success or an Err value on error.
 
-Inside the function, you define a variable enterprise_data variable that is a reference to an Account<EnterpriseData> account. This account is initialized using the #[account(init)] macro and is stored in the variableenterprise_data.
+Inside the function, you define a variable enterprise_data 💼 that is a reference to an Account<EnterpriseData> account. This account is initialized using the #[account(init)] macro and is stored in the variable enterprise_data.
 
-The Pubkey::find_program_address function is also used to generate a unique public account address for the company account being created. The address is made up of a seed and a bump value that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
+The Pubkey::find_program_address function is also used to generate a unique public account address for the company account being created. The address is made up of a seed 🔑 and a bump value 💥 that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
 
-The company account information is updated with the values ​​provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
+The company account information is updated with the values provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
 
 The function also uses the #[derive(Accounts)] macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the ctx parameter, which is of type Context<Create>.
 
