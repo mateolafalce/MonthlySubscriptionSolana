@@ -61,7 +61,7 @@ The company account information is updated with the values provided in the funct
 
 The function also uses the #[derive(Accounts)] macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the ctx parameter, which is of type Context<Create>.
 
-<h3 align="center">Suscribe to a service</h3>
+<h3 align="center">Suscribe to a service📩</h3>
 
 ```rust
 pub fn suscribe(
