@@ -18,7 +18,7 @@
 
   💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options. 🚀
 
-<h3 align="center">Register a service🏪</h3>
+<h3 align="center">Register a service</h3>
 
 ```rust
 pub fn create(
@@ -61,7 +61,7 @@ The company account information is updated with the values provided in the funct
 
 The function also uses the #[derive(Accounts)] macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the ctx parameter, which is of type Context<Create>.
 
-<h3 align="center">Suscribe to a service📩</h3>
+<h3 align="center">Suscribe to a service</h3>
 
 ```rust
 pub fn suscribe(
@@ -115,9 +115,11 @@ pub struct Suscribe<'info> {
 }
 ```
 
-The function takes as input the user's information, including their first and last name, as well as the information of the company that provides the service. The function performs various operations, including validating the length of the first and last name, transferring a specified amount of money from the user's account to the company's account, updating company data, and creating a new user account.
+🤖💻 The function takes as input the user's information, including their first and last name, as well as the information of the company that provides the service. The function performs several operations, including validating the length of the first and last name, transferring a specified amount of money from the user's account to the company's account, updating company data, and creating a new user account.
 
-En la función en sí, se realizan varias validaciones y operaciones de manejo de cuenta, incluyendo la validación de la longitud del nombre y apellido, la transferencia de una cantidad específica de dinero, la actualización de los datos de la empresa y la creación de una nueva cuenta de usuario. La función también utiliza el reloj de la blockchain para establecer la fecha de vencimiento de la suscripción y la cantidad de créditos disponibles para el usuario.
+🔍📝 In the function itself, various validations and account management operations are performed, including validating the length of the first and last name, transferring an amount of money, updating company data, and creating a new user account.
+
+⏰🔗 The feature also uses the blockchain clock to set the subscription expiration date and the number of credits available to the user.
 
 <h3 align="center">Use your suscription</h3>
 
