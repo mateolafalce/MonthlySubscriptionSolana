@@ -220,11 +220,11 @@ pub struct Renew<'info> {
 
 The function is responsible for renewing a user's subscription to a business service.
 
-The function takes a ctx argument of type Context<Renew> that contains information about the relevant user and business accounts, as well as other parameters needed to execute the function.
+🔧 The function takes a ctx argument of type Context<Renew> that contains information about the relevant user and business accounts, as well as other parameters needed to execute the function.
 
-The function performs several operations. First, it gets a mutable reference to the user and business data accounts. It then invokes a transfer function from Solana's system program to transfer a specified number of tokens from the user's account to the company's authorized party. It then updates the business data to reflect that an additional user has been added. Lastly, it updates the user's data to reflect that their subscription has been renewed for another month, adding additional credits to their account.
+👷‍♂️ The function performs several operations. First, it gets a mutable reference to the user and business data accounts. It then invokes a transfer function from Solana's system program to transfer a specified number of tokens from the user's account to the company's authorized party. It then updates the business data to reflect that an additional user has been added. Lastly, it updates the user's data to reflect that their subscription has been renewed for another month, adding additional credits to their account.
 
-The function is annotated with an Accounts attribute that specifies the accounts required for the execution of the function. In this case, the role requires a business data account, a user data account, a token transfer user account, a gambling account, and the ability to use the Solana system program.
+📝 The function is annotated with an Accounts attribute that specifies the accounts required for the execution of the function. In this case, the role requires a business data account, a user data account, a token transfer user account, a gambling account, and the ability to use the Solana system program.
 
 <h3 align="center">Delete your suscription</h3>
 
