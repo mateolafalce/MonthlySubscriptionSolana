@@ -165,11 +165,11 @@ pub struct UseSus<'info> {
 
 The function takes an argument of type Context<UseSus> and returns a Result<()>. The function is used to perform a transaction on the Solana blockchain that updates the data of a user subscribed to a company service.
 
-The function begins by declaring two variables that point to the user and company accounts. Both are mutable so they can be updated on the blockchain. Next, a secure_check variable is declared which is used to keep track of whether the transaction is secure or not.
+👨‍💻 The function begins by declaring two variables that point to the user and company accounts. Both are mutable so they can be updated on the blockchain. Next, a secure_check variable is declared which is used to keep track of whether the transaction is secure or not.
 
-The function then performs some checks on the user's data to ensure that they have enough credits to use the service and that they are not late in paying. If the user has available credits, the function uses them and increments the value of secure_check. If the user has no credits available, the total number of subscribed users is reduced and an error is returned indicating that the user has no credits.
+🔍 The function then performs some checks on the user's data to ensure that they have enough credits to use the service and that they are not late in paying. If the user has available credits, the function uses them and increments the value of secure_check. If the user has no credits available, the total number of subscribed users is reduced and an error is returned indicating that the user has no credits.
 
-Finally, if the transaction is secure, a credit is used and Ok(()) is returned to indicate that the transaction was successful. The function also uses some attributes from the #[derive(Accounts)] macro to define the accounts that are used in the transaction and ensure that only accounts that correspond to the company and user in question can be updated.
+👍 Finally, if the transaction is secure, a credit is used and Ok(()) is returned to indicate that the transaction was successful. The function also uses some attributes from the #[derive(Accounts)] macro to define the accounts that are used in the transaction and ensure that only accounts that correspond to the company and user in question can be updated. 💪
 
 <h3 align="center">Renew your suscription</h3>
 
