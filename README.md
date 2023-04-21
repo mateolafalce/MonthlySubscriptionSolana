@@ -251,10 +251,10 @@ pub struct Delete<'info> {
 }
 ```
 
-The delete function is a delete function that deletes a subscriber's data in an enterprise data account.
+🗑️ The delete function is a delete function that deletes a subscriber's data in an enterprise data account.
 
-The Delete structure uses the Accounts attribute to specify which accounts should be used in the function. The enterprise_data account is an enterprise account that stores company data, while user_data is an account that stores subscriber data. Both accounts are mutable and require a set of seeds for modification.
+🔍 The Delete structure uses the Accounts attribute to specify which accounts should be used in the function. The enterprise_data account is an enterprise account that stores company data, while user_data is an account that stores subscriber data. Both accounts are mutable and require a set of seeds for modification.
 
-The user account is a signer that is used to authorize the delete operation. In addition, the function also uses the Solana system program to perform the operation.
+👤 The user account is a signer that is used to authorize the delete operation. In addition, the function also uses the Solana system program to perform the operation. 💻
 
 </div>
