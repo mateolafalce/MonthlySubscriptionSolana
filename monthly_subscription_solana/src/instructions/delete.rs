@@ -2,15 +2,13 @@ use anchor_lang::{
     prelude::*,
     solana_program::pubkey::Pubkey,
 };
-
-// Import the necessary account and program types from our state module
 use crate::state::accounts::*;
 
 // Define a function to delete a user's subscription data
 pub fn delete(
     _ctx: Context<Delete> // The function takes a context object of type Delete
 ) -> Result<()> {
-    Ok(()) // The function simply returns a successful result
+    Ok(())
 }
 
 // Define a struct to represent the accounts needed for the delete operation

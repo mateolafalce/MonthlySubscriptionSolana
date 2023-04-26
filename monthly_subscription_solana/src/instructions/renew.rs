@@ -13,7 +13,6 @@ pub fn renew(
     let enterprise_data: &mut Account<EnterpriseData> = &mut ctx.accounts.enterprise_data;
     let user_data: &mut Account<SubscriberData> = &mut ctx.accounts.user_data;
     // Transfer funds from the user's account to the enterprise's account
-    // This is done using the Solana System Program's transfer instruction
     anchor_lang::solana_program::program::invoke(
         &system_instruction::transfer(&ctx.accounts.from.key(), &enterprise_data.authority, enterprise_data.amount_per_month),
         &[ctx.accounts.from.to_account_info(), ctx.accounts.stake.to_account_info().clone()],
@@ -28,7 +27,6 @@ pub fn renew(
     Ok(())
 }
 
-// Define the accounts required for the Renew function using the #[derive(Accounts)] macro
 #[derive(Accounts)]
 pub struct Renew<'info> {
     // The enterprise account that is being subscribed to

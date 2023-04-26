@@ -2,8 +2,6 @@ use anchor_lang::{
     prelude::*,
     solana_program::pubkey::Pubkey,
 };
-
-// Import the account and error types from the `state` and `errors` modules
 use crate::state::accounts::*;
 use crate::errors::ErrorCode;
 
