@@ -70,7 +70,10 @@ The function also uses the #[derive(Accounts)] macro to define a Create structur
 
 ---
 
-<h3 align="center">Suscribe to a service</h3>
+<details>
+<summary>Suscribe to a service ✒️ </summary>
+
+<br>
 
 ```rust
 pub fn suscribe(
@@ -129,6 +132,10 @@ The function takes as input the user's information, including their first and la
 In the function itself, various validations and account management operations are performed, including validating the length of the first and last name, transferring an amount of money, updating company data, and creating a new user account.
 
 The feature also uses the blockchain clock to set the subscription expiration date and the number of credits available to the user.
+
+</details>
+
+---
 
 <h3 align="center">Use your suscription</h3>
 
