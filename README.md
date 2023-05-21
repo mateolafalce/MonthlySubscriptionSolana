@@ -18,7 +18,12 @@
 
   💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
 
-<h3 align="center">Register a service</h3>
+---
+
+<details>
+<summary>Register a service🏙️</summary>
+
+<br>
 
 ```rust
 pub fn create(
@@ -60,6 +65,10 @@ The Pubkey::find_program_address function is also used to generate a unique publ
 The company account information is updated with the values provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
 
 The function also uses the #[derive(Accounts)] macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the ctx parameter, which is of type Context<Create>.
+
+</details>
+
+---
 
 <h3 align="center">Suscribe to a service</h3>
 
