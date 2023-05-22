@@ -9,12 +9,11 @@
 
 ---
 
-<div>
-  💻 This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider. The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
+💻 This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider. The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
 
-  🌎 Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
+🌎 Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
 
-  💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
+💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
 
 ---
 
@@ -192,7 +191,10 @@ Finally, if the transaction is secure, a credit is used and Ok(()) is returned t
 
 ---
 
-<h3 align="center">Renew your suscription</h3>
+<details>
+<summary>Renew your suscription 🗒️ </summary>
+
+<br>
 
 ```rust
 pub fn renew(
@@ -246,6 +248,10 @@ The function takes a ctx argument of type Context<Renew> that contains informati
 The function performs several operations. First, it gets a mutable reference to the user and business data accounts. It then invokes a transfer function from Solana's system program to transfer a specified number of tokens from the user's account to the company's authorized party. It then updates the business data to reflect that an additional user has been added. Lastly, it updates the user's data to reflect that their subscription has been renewed for another month, adding additional credits to their account.
 
 The function is annotated with an Accounts attribute that specifies the accounts required for the execution of the function. In this case, the role requires a business data account, a user data account, a token transfer user account, a gambling account, and the ability to use the Solana system program.
+
+</details>
+
+---
 
 <h3 align="center">Delete your suscription</h3>
 
