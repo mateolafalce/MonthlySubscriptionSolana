@@ -10,9 +10,7 @@
 ---
 
 <div>
-  💻 This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider.
-
-  🔧 The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
+  💻 This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider. The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
 
   🌎 Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
 
@@ -60,7 +58,7 @@ The create function takes three parameters: a Context, a u64 value named share_a
 
 Inside the function, you define a variable enterprise_data that is a reference to an Account<EnterpriseData> account. This account is initialized using the #[account(init)] macro and is stored in the variable enterprise_data.
 
-The Pubkey::find_program_address function is also used to generate a unique public account address for the company account being created. The address is made up of a seed and a bump value that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
+The find_program_address function is also used to generate a unique public account address for the company account being created. The address is made up of a seed and a bump value that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
 
 The company account information is updated with the values provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
 
@@ -137,7 +135,10 @@ The feature also uses the blockchain clock to set the subscription expiration da
 
 ---
 
-<h3 align="center">Use your suscription</h3>
+<details>
+<summary>Use your suscription 🏋️ </summary>
+
+<br>
 
 ```rust
 pub fn use_sus(
@@ -186,6 +187,10 @@ The function begins by declaring two variables that point to the user and compan
 The function then performs some checks on the user's data to ensure that they have enough credits to use the service and that they are not late in paying. If the user has available credits, the function uses them and increments the value of secure_check. If the user has no credits available, the total number of subscribed users is reduced and an error is returned indicating that the user has no credits.
 
 Finally, if the transaction is secure, a credit is used and Ok(()) is returned to indicate that the transaction was successful. The function also uses some attributes from the #[derive(Accounts)] macro to define the accounts that are used in the transaction and ensure that only accounts that correspond to the company and user in question can be updated.
+
+</details>
+
+---
 
 <h3 align="center">Renew your suscription</h3>
 
