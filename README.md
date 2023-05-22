@@ -253,7 +253,10 @@ The function is annotated with an Accounts attribute that specifies the accounts
 
 ---
 
-<h3 align="center">Delete your suscription</h3>
+<details>
+<summary>Delete your suscription 🗑️</summary>
+
+<br>
 
 ```rust
 pub fn delete(
@@ -284,4 +287,6 @@ The Delete structure uses the Accounts attribute to specify which accounts shoul
 
 The user account is a signer that is used to authorize the delete operation. In addition, the function also uses the Solana system program to perform the operation.
 
-</div>
+</details>
+
+---
