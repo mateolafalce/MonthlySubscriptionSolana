@@ -9,11 +9,11 @@
 
 ---
 
-💻 This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider. The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
+This program focuses on the massive integration of monthly services to the Solana blockchain ecosystem. The goal is to create services and allow for their respective administration to be decentralized across each provider. The program consists of 5 basic functions that enable autonomous performance, and it can be integrated into desktop and mobile projects. The program will use 8 credits per month, with the service being offered twice a week. However, this can be modified and scaled to meet the needs of the developer.
 
-🌎 Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
+Please note that this project is for personal development and is not subject to any legislation in any country. Therefore, the responsibility of developing applications influenced by it falls on the developer or company in question.
 
-💪 Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
+Registering a service and using one of the credits paid each month implies the use of the computing power of the Solana blockchain. This makes it a great option for projects where security and transparency are vital, such as medical supplies, home rentals, retail specific, or multimedia playback of exclusive content, among many other options.
 
 ---
 
@@ -53,15 +53,15 @@ pub struct Create<'info> {
     pub system_program: Program<'info, System>, // system program account
 }
 ```
-The create function takes three parameters: a Context, a u64 value named share_amount, and a string named name. The return type of the function is Result<()>, which means that the function can return an Ok(()) value on success or an Err value on error.
+The create function takes three parameters: a Context, a u64 value named `share_amount`, and a string named name. The return type of the function is `Result<()>`, which means that the function can return an `Ok(())` value on success or an Err value on error.
 
-Inside the function, you define a variable enterprise_data that is a reference to an Account<EnterpriseData> account. This account is initialized using the #[account(init)] macro and is stored in the variable enterprise_data.
+Inside the function, you define a variable `enterprise_data` that is a reference to an Account<EnterpriseData> account. This account is initialized using the `#[account(init)]` macro and is stored in the variable enterprise_data.
 
-The find_program_address function is also used to generate a unique public account address for the company account being created. The address is made up of a seed and a bump value that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
+The `find_program_address()` function is also used to generate a unique public account address for the company account being created. The address is made up of a seed and a bump value that is generated from the string "Enterprise" and the public key of the user who is creating the account. This address is used as a seed to initialize the company account.
 
 The company account information is updated with the values provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
 
-The function also uses the #[derive(Accounts)] macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the ctx parameter, which is of type Context<Create>.
+The function also uses the `#[derive(Accounts)]` macro to define a Create structure that represents the accounts needed to execute the function. This structure includes an enterprise_data account, a user account, and a system program account. These accounts are passed as arguments to the create function via the `ctx` parameter, which is of type Context<Create>.
 
 </details>
 
@@ -128,7 +128,7 @@ The function takes as input the user's information, including their first and la
 
 In the function itself, various validations and account management operations are performed, including validating the length of the first and last name, transferring an amount of money, updating company data, and creating a new user account.
 
-The feature also uses the blockchain clock to set the subscription expiration date and the number of credits available to the user.
+The feature also uses the blockchain clock to set the subscription expiration date and the number of `credits` available to the user.
 
 </details>
 
@@ -179,11 +179,11 @@ pub struct UseSus<'info> {
 }
 ```
 
-The function takes an argument of type Context<UseSus> and returns a Result<()>. The function is used to perform a transaction on the Solana blockchain that updates the data of a user subscribed to a company service.
+The function takes an argument of type `Context<UseSus>` and returns a Result<()>. The function is used to perform a transaction on the Solana blockchain that updates the data of a user subscribed to a company service.
 
-The function begins by declaring two variables that point to the user and company accounts. Both are mutable so they can be updated on the blockchain. Next, a secure_check variable is declared which is used to keep track of whether the transaction is secure or not.
+The function begins by declaring two variables that point to the user and company accounts. Both are mutable so they can be updated on the blockchain. Next, a `secure_check` variable is declared which is used to keep track of whether the transaction is secure or not.
 
-The function then performs some checks on the user's data to ensure that they have enough credits to use the service and that they are not late in paying. If the user has available credits, the function uses them and increments the value of secure_check. If the user has no credits available, the total number of subscribed users is reduced and an error is returned indicating that the user has no credits.
+The function then performs some checks on the user's data to ensure that they have enough credits to use the service and that they are not late in paying. If the user has available credits, the function uses them and increments the value of `secure_check`. If the user has no credits available, the total number of subscribed users is reduced and an error is returned indicating that the user has no credits.
 
 Finally, if the transaction is secure, a credit is used and Ok(()) is returned to indicate that the transaction was successful. The function also uses some attributes from the #[derive(Accounts)] macro to define the accounts that are used in the transaction and ensure that only accounts that correspond to the company and user in question can be updated.
 
@@ -241,7 +241,7 @@ pub struct Renew<'info> {
 }
 ```
 
-The function is responsible for renewing a user's subscription to a business service.
+The function is responsible for renewing a `user's subscription` to a business service.
 
 The function takes a ctx argument of type Context<Renew> that contains information about the relevant user and business accounts, as well as other parameters needed to execute the function.
 
@@ -283,7 +283,7 @@ pub struct Delete<'info> {
 
 The delete function is a delete function that deletes a subscriber's data in an enterprise data account.
 
-The Delete structure uses the Accounts attribute to specify which accounts should be used in the function. The enterprise_data account is an enterprise account that stores company data, while user_data is an account that stores subscriber data. Both accounts are mutable and require a set of seeds for modification.
+The Delete structure uses the Accounts attribute to specify which accounts should be used in the function. The `enterprise_data` account is an enterprise account that stores company data, while `user_data` is an account that stores subscriber data. Both accounts are mutable and require a set of seeds for modification.
 
 The user account is a signer that is used to authorize the delete operation. In addition, the function also uses the Solana system program to perform the operation.
 
