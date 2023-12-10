@@ -17,8 +17,7 @@ Registering a service and using one of the credits paid each month implies the u
 
 ---
 
-<details>
-<summary>Register a service</summary>
+<h2>Register a service</h2>
 
 <br>
 
@@ -47,12 +46,10 @@ Inside the function, you define a variable `enterprise_data` that is a reference
 
 The company account information is updated with the values provided in the function parameters. Finally, an Ok(()) value is returned if the operation was successful.
 
-</details>
 
 ---
 
-<details>
-<summary>Suscribe to a service</summary>
+<h2>Suscribe to a service</h2>
 
 <br>
 
@@ -105,12 +102,9 @@ In the function itself, various validations and account management operations ar
 
 The feature also uses the blockchain clock to set the subscription expiration date and the number of `credits` available to the user.
 
-</details>
-
 ---
 
-<details>
-<summary>Use your suscription 🏋️ </summary>
+<h2>Use your suscription  </h2>
 
 <br>
 
@@ -139,12 +133,9 @@ Performs some checks on the user's data to ensure that they have enough credits 
 
 Finally, if the transaction is secure, a credit is used and Ok(()) is returned to indicate that the transaction was successful. The function also uses some attributes from the #[derive(Accounts)] macro to define the accounts that are used in the transaction and ensure that only accounts that correspond to the company and user in question can be updated.
 
-</details>
-
 ---
 
-<details>
-<summary>Renew your suscription</summary>
+<h2>Renew your suscription</h2>
 
 <br>
 
@@ -183,12 +174,9 @@ Performs several operations. First, it gets a mutable reference to the user and 
 
 Annotated with an Accounts attribute that specifies the accounts required for the execution of the function. In this case, the role requires a business data account, a user data account, a token transfer user account, a gambling account, and the ability to use the Solana system program.
 
-</details>
-
 ---
 
-<details>
-<summary>Delete your suscription</summary>
+<h2>Delete your suscription</h2>
 
 <br>
 
