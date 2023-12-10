@@ -1,13 +1,13 @@
-[package]
-name = "suscription"
-version = "0.1.0"
-edition = "2021"
-authors = ["Mateo Lafalce <mateo.lafalce04@gmail.com>"]
+[workspace]
+members = [
+    "programs/*"
+]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-monthly_subscription_solana = { path = "./monthly_subscription_solana", features = ["no-entrypoint"] }
-shellexpand = "2.1.0"
-anchor-client = { version = "0.26.0", features = ["debug"] }
-anyhow = "1.0.32"
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1

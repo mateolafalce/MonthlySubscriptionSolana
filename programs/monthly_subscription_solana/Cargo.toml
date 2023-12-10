@@ -1,9 +1,8 @@
 [package]
 name = "monthly_subscription_solana"
-version = "0.1.0"
-description = "A monthly subscription in Solana"
+version = "1.0.0"
+description = "suscription app"
 edition = "2021"
-authors = ["Mateo Lafalce <mateo.lafalce04@gmail.com>"]
 
 [lib]
 crate-type = ["cdylib", "lib"]
@@ -17,4 +16,4 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = "0.26.0"
+anchor-lang = "0.29.0"
