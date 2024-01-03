@@ -46,18 +46,14 @@ pub fn suscribe(ctx: Context<Suscribe>, name: String, lastname: String) -> Resul
 pub struct Suscribe<'info> {
     #[account(mut, seeds = [b"Enterprise", enterprise_data.authority.key().as_ref()], bump = enterprise_data.bump_original)]
     pub enterprise_data: Account<'info, EnterpriseData>,
-
     #[account(init, seeds = [enterprise_data.key().as_ref(), user.key().as_ref()], bump, payer = from, space = 8 + SubscriberData::LEN)]
     pub user_data: Account<'info, SubscriberData>,
-
     /// CHECK: This is not dangerous
     #[account(mut)]
     pub from: AccountInfo<'info>,
-
     /// CHECK: This is not dangerous
     #[account(mut)]
     pub stake: AccountInfo<'info>,
-
     pub user: Signer<'info>,
     pub system_program: Program<'info, System>,
 }

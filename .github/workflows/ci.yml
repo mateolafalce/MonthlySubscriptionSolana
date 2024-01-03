@@ -1,0 +1,27 @@
+name: Rust CI/CD
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Rust
+      uses: actions/setup-rust@v1
+
+    - name: Format Code
+      run: cargo fmt --all -- --check
+
+    - name: Build Anchor
+      run: anchor build
+
+    - name: Check Clippy
+      run: cargo clippy --all -- --deny warnings
+

@@ -7,7 +7,6 @@ pub fn create(ctx: Context<Create>, share_amount: u64, name: String) -> Result<(
         &[b"Enterprise", ctx.accounts.user.key().as_ref()],
         ctx.program_id,
     );
-
     //update state
     enterprise_data.set_authority(ctx.accounts.user.key());
     enterprise_data.set_bump(bump);
@@ -23,9 +22,7 @@ pub fn create(ctx: Context<Create>, share_amount: u64, name: String) -> Result<(
 pub struct Create<'info> {
     #[account(init, seeds = [b"Enterprise", user.key().as_ref()], bump, payer = user, space = 8 + EnterpriseData::LEN)]
     pub enterprise_data: Account<'info, EnterpriseData>,
-
     #[account(mut)]
     pub user: Signer<'info>,
-
     pub system_program: Program<'info, System>,
 }

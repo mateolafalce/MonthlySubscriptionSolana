@@ -1,5 +1,4 @@
-use crate::utils::utils::MONTH;
-use crate::errors::errors::ErrorCode;
+use crate::utils::util::MONTH;
 use anchor_lang::prelude::*;
 
 #[account]
@@ -50,32 +49,33 @@ impl EnterpriseData {
     }
 
     pub fn set_secure_check(&mut self) {
-        self.secure_check = Clock::get().unwrap().unix_timestamp + MONTH;
+        let current_time: i64 = Clock::get().unwrap().unix_timestamp;
+        self.secure_check = current_time + MONTH;
     }
 
-    pub fn have_credits(&mut self, credits: u8) -> Result<()>{
-        let state: bool = credits > 0;
-        require!(state, ErrorCode::YouHaveNoCredits);
-        if !state {
+    pub fn have_credits(&mut self, credits: u8) -> Result<()> {
+        let active: bool = credits > 0;
+        if !active {
             self.total_users -= 1;
         }
+        require_gt!(credits, 0);
         Ok(())
     }
-
 }
 
 impl SubscriberData {
     pub const LEN: usize = 32 + 4 + 20 + 4 + 20 + 8 + 1 + 1;
 
     pub fn add_month_timestamp(&mut self) {
-        self.month_timestamp = Clock::get().unwrap().unix_timestamp + MONTH;
+        let current_time: i64 = Clock::get().unwrap().unix_timestamp;
+        self.month_timestamp = current_time + MONTH;
     }
 
     pub fn add_credits(&mut self) {
         self.credits += 8;
     }
 
-    pub fn sub_credits(&mut self){
+    pub fn sub_credits(&mut self) {
         self.credits -= 1;
     }
 
@@ -83,9 +83,9 @@ impl SubscriberData {
         self.bump = bump;
     }
 
-    pub fn valid_time(&self) -> Result<()>{
-    require!(self.month_timestamp <= Clock::get().unwrap().unix_timestamp, ErrorCode::OverdueCredits);
-    Ok(())
-}
-
+    pub fn valid_time(&self) -> Result<()> {
+        let current_time: i64 = Clock::get().unwrap().unix_timestamp;
+        require_gte!(self.month_timestamp, current_time);
+        Ok(())
+    }
 }
