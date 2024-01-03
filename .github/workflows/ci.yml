@@ -1,27 +1,83 @@
-name: Rust CI/CD
-
+name: CI
 on:
   push:
     branches:
-      - main 
+      - main
+  pull_request:
 
 jobs:
+
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: version info
+        run:  rustc --version; cargo --version;
+
+      - name: Run all tests
+        run: cargo test
+
+      - name: Run all tests (no default features)
+        run: cargo test --no-default-features
+
+
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+          args: --all -- --check
+
+
+  clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: -- -D warnings
+
+
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Set up Rust
-      uses: actions/setup-rust@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
 
-    - name: Format Code
-      run: cargo fmt --all -- --check
-
-    - name: Build Anchor
-      run: anchor build
-
-    - name: Check Clippy
-      run: cargo clippy --all -- --deny warnings
-
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
