@@ -1,6 +1,6 @@
 [package]
 name = "monthly_subscription_solana"
-version = "1.0.1"
+version = "1.0.2"
 description = "suscription app"
 edition = "2021"
 

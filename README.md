@@ -30,7 +30,6 @@ pub fn create(ctx: Context<Create>, share_amount: u64, name: String) -> Result<(
         &[b"Enterprise", ctx.accounts.user.key().as_ref()],
         ctx.program_id,
     );
-    
     //update state
     enterprise_data.set_authority(ctx.accounts.user.key());
     enterprise_data.set_bump(bump);
@@ -38,7 +37,6 @@ pub fn create(ctx: Context<Create>, share_amount: u64, name: String) -> Result<(
     enterprise_data.set_total_users();
     enterprise_data.set_amount_per_month(share_amount);
     enterprise_data.set_secure_check();
-
     Ok(())
 }
 ```

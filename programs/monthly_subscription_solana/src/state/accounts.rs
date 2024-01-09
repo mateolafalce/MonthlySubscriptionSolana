@@ -1,4 +1,4 @@
-use crate::utils::util::MONTH;
+use crate::utils::util::{ANCHOR_BUFFER, MONTH};
 use anchor_lang::prelude::*;
 
 #[account]
@@ -9,7 +9,7 @@ pub struct EnterpriseData {
     pub amount_per_month: u64, //8
     pub secure_check: i64,     //8
     pub total_users: u16,      //2
-} //total = 85
+}
 
 #[account]
 pub struct SubscriberData {
@@ -19,10 +19,10 @@ pub struct SubscriberData {
     pub month_timestamp: i64, //8
     pub bump: u8,             //1
     pub credits: u8,          //1
-} //total = 90
+}
 
 impl EnterpriseData {
-    pub const LEN: usize = 32 + 4 + 30 + 1 + 8 + 8 + 2;
+    pub const LEN: usize = 32 + 4 + 30 + 1 + 8 + 8 + 2 + ANCHOR_BUFFER;
 
     pub fn add_total_users(&mut self) {
         self.total_users += 1;
@@ -64,7 +64,7 @@ impl EnterpriseData {
 }
 
 impl SubscriberData {
-    pub const LEN: usize = 32 + 4 + 20 + 4 + 20 + 8 + 1 + 1;
+    pub const LEN: usize = 32 + 4 + 20 + 4 + 20 + 8 + 1 + 1 + ANCHOR_BUFFER;
 
     pub fn add_month_timestamp(&mut self) {
         let current_time: i64 = Clock::get().unwrap().unix_timestamp;
